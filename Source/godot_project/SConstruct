@@ -9,7 +9,7 @@ sconstruct_dir = Dir('.').abspath
 env = SConscript("godot-cpp/SConstruct")
 
 # Set VLC include and library paths relative to SConstruct file
-vlc_include_path = os.path.join(sconstruct_dir, 'libVLC/include')  # Path to the VLC include files
+vlc_include_path = os.path.join(sconstruct_dir, 'libVLC/include' )  # Path to the VLC include files
 vlc_lib_path = os.path.join(sconstruct_dir, 'libVLC')  # Path to the VLC library files
 
 env.Append(CPPPATH=[vlc_include_path])  # Include path for the compiler
