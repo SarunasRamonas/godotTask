@@ -7,3 +7,7 @@
 The project is divided into two main parts:
 - **Source:** This folder contains the main Godot project files and a C++ project for integrating libVLC.
 - **Builds:** This folder includes the built versions of the Godot project, alongside the compiled libVLC and the C++ interface project.
+- **Doc:** This folder includes material used for readme
+
+## Project Architecture
+![Sys Architecture](doc/images/arch_diagram.png "System Architecture")
