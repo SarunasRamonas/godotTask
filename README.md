@@ -1,8 +1,7 @@
 # Assignment Project
 
 ## Project Overview
-`Assignment Project` is a Godot project designed to extract and return the raw values (RGB struct) of a selected pixel. It then visualizes these values using a GLSL shader. The project is a blend of Godot's powerful game engine capabilities with advanced graphics programming, making it ideal for applications in image processing and visualization.
-
+`Assignment Project` is a Godot project designed to extract and return the raw values (RGB struct) of a selected pixel. It then visualizes these values using a GLSL shader.
 ![screenshot](doc/images/screenshot1.png "screenshot")
 
 ## Project Structure
