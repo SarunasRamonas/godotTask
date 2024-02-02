@@ -1,0 +1,451 @@
+[gd_scene load_steps=20 format=3 uid="uid://bf5ohqo8j3cxu"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_fwn0h"]
+[ext_resource type="Shader" path="res://shaders/PixelColorShader.gdshader" id="2_7wgrf"]
+[ext_resource type="VideoStream" path="res://1280X72030FpsPhotoJpeg75.ogv" id="3_ea6nr"]
+[ext_resource type="FontFile" uid="uid://6433u81xcahc" path="res://fonts/Heavitas.ttf" id="4_kveu5"]
+[ext_resource type="Texture2D" uid="uid://gdqqixo3qvb7" path="res://textures/tex_video_player.png" id="7_g84ng"]
+[ext_resource type="FontFile" uid="uid://bpj3h01muhjvm" path="res://fonts/Montserrat-Regular.ttf" id="8_6edvn"]
+[ext_resource type="Texture2D" uid="uid://dpmfmqnehbud4" path="res://textures/StickyNote.png" id="8_ksnbg"]
+[ext_resource type="Shader" path="res://shaders/RGBVisShaderr.gdshader" id="9_00nt5"]
+[ext_resource type="Shader" path="res://shaders/ColumnShader.gdshader" id="9_0rwtd"]
+[ext_resource type="Texture2D" uid="uid://cc8uqluhrmvik" path="res://textures/tex_viz_panel.png" id="9_13sq4"]
+[ext_resource type="Texture2D" uid="uid://c8aqpt6iscueb" path="res://textures/tex_component_panel.png" id="10_wjihd"]
+[ext_resource type="Script" path="res://scripts/visualizationScript.gd" id="11_rpoos"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_luw61"]
+shader = ExtResource("2_7wgrf")
+shader_parameter/PixelColorV3 = Vector3(0, 0, 0)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vsvw4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc384"]
+shader = ExtResource("9_00nt5")
+shader_parameter/color1 = Vector3(0.611765, 0.262745, 0.996078)
+shader_parameter/color2 = Vector3(0.298039, 0.760784, 0.913725)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_o5l3y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_574xo"]
+shader = ExtResource("9_0rwtd")
+shader_parameter/PixelColorV3 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvpwr"]
+shader = ExtResource("9_0rwtd")
+shader_parameter/PixelColorV3 = null
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1wt67"]
+
+[node name="demo" type="Node2D"]
+script = ExtResource("1_fwn0h")
+
+[node name="background" type="Node" parent="."]
+
+[node name="button_exit" type="Button" parent="background"]
+offset_left = 1093.0
+offset_top = 12.0
+offset_right = 1133.0
+offset_bottom = 43.0
+text = "X"
+
+[node name=">>>" type="Label" parent="background"]
+offset_left = 535.0
+offset_top = 531.0
+offset_right = 621.0
+offset_bottom = 550.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 12
+text = ">>>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name=">>>2" type="Label" parent="background"]
+offset_left = 866.0
+offset_top = 459.0
+offset_right = 907.0
+offset_bottom = 478.0
+rotation = -1.5708
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 12
+text = ">>>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label_info" type="Label" parent="background"]
+offset_left = 25.0
+offset_top = 413.0
+offset_right = 611.0
+offset_bottom = 432.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 12
+text = "Press cursor on video to get pixel data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="background"]
+offset_left = 245.0
+offset_top = 428.0
+offset_right = 399.0
+offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 12
+text = "Stop Video Player"
+
+[node name="label_info2" type="Label" parent="background"]
+offset_left = 27.0
+offset_top = 16.0
+offset_right = 1130.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 16
+text = "Assignment project"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="video_player_panel" type="Node" parent="."]
+
+[node name="tex_panel" type="Sprite2D" parent="video_player_panel"]
+position = Vector2(321, 227)
+texture = ExtResource("7_g84ng")
+
+[node name="label_headline" type="Label" parent="video_player_panel/tex_panel"]
+offset_left = -81.0
+offset_top = -178.0
+offset_right = 60.0
+offset_bottom = -166.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "Video Player Panel"
+metadata/_edit_use_anchors_ = true
+
+[node name="video_player" type="VideoStreamPlayer" parent="video_player_panel"]
+clip_contents = true
+offset_left = 50.0
+offset_top = 78.0
+offset_right = 594.0
+offset_bottom = 382.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 3
+stream = ExtResource("3_ea6nr")
+autoplay = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="godot_info_panel" type="Node" parent="."]
+
+[node name="tex_godot_info" type="Sprite2D" parent="godot_info_panel"]
+position = Vector2(277, 548)
+texture = ExtResource("10_wjihd")
+
+[node name="label_headline" type="Label" parent="godot_info_panel/tex_godot_info"]
+offset_left = -253.0
+offset_top = -73.0
+offset_right = 246.0
+offset_bottom = -54.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "Godot info (after selection)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="label_pixel_loc" type="Label" parent="godot_info_panel/tex_godot_info"]
+offset_left = -239.0
+offset_top = -22.0
+offset_right = -142.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Pixel location:"
+
+[node name="label_duration" type="Label" parent="godot_info_panel/tex_godot_info"]
+offset_left = -239.0
+offset_top = 2.0
+offset_right = -132.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Video duration:"
+
+[node name="label_duration2" type="Label" parent="godot_info_panel/tex_godot_info"]
+offset_left = -239.0
+offset_top = 24.0
+offset_right = -132.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Video duration:"
+
+[node name="StickyNote" type="Sprite2D" parent="godot_info_panel/tex_godot_info"]
+position = Vector2(287, -126)
+rotation = -0.345575
+scale = Vector2(0.59434, 0.486239)
+texture = ExtResource("8_ksnbg")
+
+[node name="Label" type="Label" parent="godot_info_panel/tex_godot_info/StickyNote"]
+offset_left = -82.4462
+offset_top = -29.724
+offset_right = 79.5538
+offset_bottom = 45.276
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Frame Seeking Issue.
+No fetch data after 
+8 sec mark. "
+
+[node name="Label2" type="Label" parent="godot_info_panel/tex_godot_info/StickyNote"]
+offset_left = -81.1157
+offset_top = -70.6693
+offset_right = 80.8843
+offset_bottom = 4.33075
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "BUG #1"
+
+[node name="ffmpeg_comp_info" type="Node" parent="."]
+
+[node name="FFMpeg_Comp" type="FFMpeg_Comp" parent="ffmpeg_comp_info"]
+
+[node name="tex_panel" type="Sprite2D" parent="ffmpeg_comp_info"]
+position = Vector2(882, 546)
+texture = ExtResource("10_wjihd")
+
+[node name="label_headline" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -253.0
+offset_top = -73.0
+offset_right = 246.0
+offset_bottom = -54.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "FFMpeg component info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label_RGB" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -146.0
+offset_top = -25.0
+offset_right = -59.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "R:
+G:
+B:"
+
+[node name="label_YUV" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -235.0
+offset_top = -28.0
+offset_right = -148.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Y:
+U:
+V:"
+
+[node name="label_RGB3" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -249.0
+offset_top = 51.0
+offset_right = 252.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Converting color space YUV420p to RGB"
+horizontal_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="ffmpeg_comp_info/tex_panel"]
+position = Vector2(-126.205, 85.6457)
+rotation = 1.5708
+scale = Vector2(0.493781, 1)
+points = PackedVector2Array(-230, -39, -107, -39)
+width = 2.0
+
+[node name="label_RGB4" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -257.0
+offset_top = -54.0
+offset_right = -69.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Selected Pixel Data:"
+horizontal_alignment = 1
+
+[node name="label_RGB5" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -73.0
+offset_top = -29.0
+offset_right = 115.0
+offset_bottom = -7.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Lines to RGB:"
+
+[node name="label_RGB6" type="Label" parent="ffmpeg_comp_info/tex_panel"]
+offset_left = -73.0
+offset_top = 13.0
+offset_right = 115.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Columns to RGB:"
+
+[node name="data_vis_panel" type="Node" parent="."]
+
+[node name="tex_panel" type="Sprite2D" parent="data_vis_panel"]
+position = Vector2(912, 266)
+texture = ExtResource("9_13sq4")
+
+[node name="label_pixel_loc" type="Label" parent="data_vis_panel/tex_panel"]
+offset_left = -254.0
+offset_top = -97.0
+offset_right = -157.0
+offset_bottom = -74.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Selected Pixel
+"
+
+[node name="label_pixel_loc2" type="Label" parent="data_vis_panel/tex_panel"]
+offset_left = -254.0
+offset_top = -64.0
+offset_right = -156.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Row Pixels"
+
+[node name="label_pixel_loc3" type="Label" parent="data_vis_panel/tex_panel"]
+offset_left = -254.0
+offset_top = 108.0
+offset_right = -156.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("8_6edvn")
+theme_override_font_sizes/font_size = 14
+text = "Column Pixels
+"
+
+[node name="label_headline" type="Label" parent="data_vis_panel"]
+offset_left = 641.0
+offset_top = 53.0
+offset_right = 1125.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "Data visualization"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tex_pixel_vis" type="TextureRect" parent="data_vis_panel"]
+material = SubResource("ShaderMaterial_luw61")
+custom_minimum_size = Vector2(27.06, 44)
+offset_left = 679.0
+offset_top = 118.0
+offset_right = 724.0
+offset_bottom = 164.0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_vsvw4")
+expand_mode = 5
+
+[node name="label_headline2" type="Label" parent="data_vis_panel"]
+offset_left = 643.0
+offset_top = 84.0
+offset_right = 768.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "Pixel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tex_vis" type="TextureRect" parent="data_vis_panel"]
+material = SubResource("ShaderMaterial_sc384")
+offset_left = 833.0
+offset_top = 111.0
+offset_right = 1073.0
+offset_bottom = 351.0
+texture = SubResource("AnimatedTexture_o5l3y")
+script = ExtResource("11_rpoos")
+
+[node name="tex_pixel_vis2" type="TextureRect" parent="data_vis_panel"]
+material = SubResource("ShaderMaterial_574xo")
+custom_minimum_size = Vector2(27.06, 44)
+offset_left = 679.0
+offset_top = 247.0
+offset_right = 724.0
+offset_bottom = 293.0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_vsvw4")
+expand_mode = 5
+
+[node name="HSlider" type="HSlider" parent="data_vis_panel"]
+offset_left = 658.0
+offset_top = 226.0
+offset_right = 744.0
+offset_bottom = 242.0
+
+[node name="Line2D" type="Line2D" parent="data_vis_panel"]
+position = Vector2(749.999, 555.11)
+rotation = 1.5708
+scale = Vector2(1.87615, 1)
+points = PackedVector2Array(-230, -39, -107, -39)
+width = 2.0
+
+[node name="label_headline3" type="Label" parent="data_vis_panel"]
+offset_left = 891.0
+offset_top = 84.0
+offset_right = 1016.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("4_kveu5")
+theme_override_font_sizes/font_size = 14
+text = "row & Column"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSlider" type="VSlider" parent="data_vis_panel"]
+offset_left = 730.0
+offset_top = 308.0
+offset_right = 764.0
+offset_bottom = 373.0
+
+[node name="tex_pixel_vis3" type="TextureRect" parent="data_vis_panel"]
+material = SubResource("ShaderMaterial_fvpwr")
+offset_left = 681.0
+offset_top = 313.0
+offset_right = 721.0
+offset_bottom = 353.0
+texture = SubResource("AnimatedTexture_1wt67")
+
+[node name="StickyNote" type="Sprite2D" parent="data_vis_panel"]
+position = Vector2(1062.65, 379.809)
+rotation = -0.179769
+scale = Vector2(0.491702, 0.421561)
+texture = ExtResource("8_ksnbg")
+
+[node name="Label" type="Label" parent="data_vis_panel/StickyNote"]
+offset_left = -81.0566
+offset_top = -45.6525
+offset_right = 80.9434
+offset_bottom = 66.3475
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "visualization takes
+colors of Row and 
+Column Pixels.
+Not texture1D (couldn't
+find workaround)"
+
+[node name="Label2" type="Label" parent="data_vis_panel/StickyNote"]
+offset_left = -81.1157
+offset_top = -70.6693
+offset_right = 80.8843
+offset_bottom = 4.33075
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "BUG #2"
+
+[connection signal="pressed" from="background/button_exit" to="." method="_on_button_exit_pressed"]
+[connection signal="toggled" from="background/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="gui_input" from="video_player_panel/video_player" to="." method="_cursor_on_video_player"]
+[connection signal="value_changed" from="data_vis_panel/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="data_vis_panel/VSlider" to="." method="_on_v_slider_value_changed"]

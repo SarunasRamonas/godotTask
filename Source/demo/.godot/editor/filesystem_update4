@@ -1,0 +1,6 @@
+res://main.tscn
+res://scripts/main.gd
+res://shaders/PixelColorShader.gdshader
+res://shaders/RGBVisShaderr.gdshader
+res://shaders/ColumnShader.gdshader
+res://shaders/RowColorShader.gdshader
