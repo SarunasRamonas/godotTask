@@ -25,3 +25,12 @@ The project is divided into two main parts:
 ![screenshot](doc/images/info2.png "screenshot")
 ![screenshot](doc/images/info3.png "screenshot")
 ![screenshot](doc/images/info4.png "screenshot")
+
+## KNOWN BUG and lack of feature
+
+**#1**
+RGB values being off and increasing offset over the duration of the video, espacially leading to no RGB values being obtainable after a certain point.
+I suspect this issue may be related to my use of frame seeking. When seeking to a specific frame, it's possible that it does not land precisely on the requested frame.
+
+**#2**
+The task was to visualize row[] and col[] as 1D textures. However, Godot does not yet support 1D textures, and despite attempting various workarounds, I have not been able to resolve this issue. As an alternative, I have implemented a shader that visualizes animation using two colors selected by the user from row[] and col[].
