@@ -10,4 +10,4 @@ The project is divided into two main parts:
 - **Doc:** This folder includes material used for readme
 
 ## Project Architecture
-![Sys Architecture](doc/images/arch_diagram.png "System Architecture")
+![Sys Architecture](doc/images/sys_arch_diagram.png "System Architecture")
