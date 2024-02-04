@@ -15,7 +15,7 @@ extern "C" {
 }
 
 using namespace godot;
-
+// Bind Godot methods for use in GDScript
 void FFMpeg_Comp::_bind_methods() {
     ClassDB::bind_method(D_METHOD("get_RGB_values", "path_video_file", "frameNumber", "x", "y"), &FFMpeg_Comp::get_RGB_values);
     ClassDB::bind_method(D_METHOD("get_YUV_values"), &FFMpeg_Comp::get_YUV_values);
@@ -25,32 +25,36 @@ void FFMpeg_Comp::_bind_methods() {
 }
 
 FFMpeg_Comp::FFMpeg_Comp() {
-
+    // Constructor
 }
 
 FFMpeg_Comp::~FFMpeg_Comp() {
-    // Cleanup
-    //delete[] rgbRow; // freeing rgbRow after use to avoid memory leaks
-    //delete[] rgbColumn; // 
+    // Destructor - Cleanup allocated resources
+    delete[] rgbRow; // freeing rgbRow after use to avoid memory leaks
+    delete[] rgbColumn;
 }
 
 void FFMpeg_Comp::initLibVLC(){
-
+    // Initialize any libraries here (currently placeholder)
 }
 
 void FFMpeg_Comp::_process(double delta) {
-    // Process method, if you need any repeated actions
+    // Process method for repeated actions (placeholder)
 }
 
+// Returns the stored YUV values of a specific pixel
 Vector3 FFMpeg_Comp::get_YUV_values(){
-
+    // YUV values set by get_RGB_values method
     return YUV_values;
 }
 
+// Fetches all pixels in a specific line as RGB values
 godot::Array FFMpeg_Comp::get_line_pixels_as_RGB(bool normalized)
 {
     godot::Array vectorArray;
     godot::Vector3 rgbVector;
+
+    // Iterates over height to get RGB values for each pixel in the column
     for (int i = 0; i < width; ++i) {
         // Calculate the index in the rgbRow array
         int index = i * 3;
@@ -74,6 +78,7 @@ godot::Array FFMpeg_Comp::get_line_pixels_as_RGB(bool normalized)
     return vectorArray;
 }
 
+// Extracts RGB values from a specific frame and pixel position
 godot::Array FFMpeg_Comp::get_column_pixels_as_RGB(bool normalized)
 {
     godot::Array vectorArray;
@@ -92,9 +97,6 @@ godot::Array FFMpeg_Comp::get_column_pixels_as_RGB(bool normalized)
         // Add the Vector3 to the array
         vectorArray.push_back(rgbVector);
     }
-
-    // Don't forget to free the allocated memory for rgbColumn when it's no longer needed
-    // delete[] rgbColumn;
 
     return vectorArray;
 }
