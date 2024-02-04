@@ -11,8 +11,8 @@ The project is divided into two main parts:
 - **Doc:** This folder includes material used for readme
 
 Schortcuts:
-[I'm a relative reference to a repository file](../Source/demo/)
-Godot project folder link.
+[Godot project folder link.](../Source/demo/)
+
 
 - Source/demo: godot project folder.
 - Source/dependencies: dependencies for FFMpeg.
