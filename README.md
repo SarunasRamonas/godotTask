@@ -11,10 +11,8 @@ The project is divided into two main parts:
 - **Doc:** This folder includes material used for readme
 
 Schortcuts:
-[Godot project folder link.](../Source/demo/)
-
-
-- Source/demo: godot project folder.
+- C++ component code is on gdexample.h and [gdexample.cpp ](Source/src/gdexample.cpp)
+- 
 - Source/dependencies: dependencies for FFMpeg.
 - Source/src: C++ component code. Main code is on gdexample.h and gdexample.cpp 
 
