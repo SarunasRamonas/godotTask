@@ -1,18 +1,18 @@
 # Assignment Project
 
 ## Project Overview
-`Assignment Project` is a Godot project designed to extract and return the raw values (RGB struct) of a selected pixel. It then visualizes these values using a GLSL shader.
+The Assignment Project is a Godot-based project designed to extract and return the raw values (RGB struct) of a selected pixel and visualize these values using a GLSL shader.
 ![screenshot](doc/images/screenshot1.png "screenshot")
 
 ## Project Structure
-The project is divided into two main parts:
-- **Source:** This folder contains the main Godot project files and a C++ project for integrating FFMpeg and all dependencies.
-- **Builds:** This folder includes the built versions of the Godot project, alongside FFMpeg dynamic libraries and test video.
-- **Doc:** This folder includes material used for readme
+The project is structured into three main directories:
+- **Source:** contains the main Godot project files and a C++ project for integrating FFmpeg along with all dependencies.
+- **Builds:** includes the built versions of the Godot project, alongside FFmpeg dynamic libraries and a test video.
+- **Doc:** Contains materials used for the README.
 
 **Shortcuts:**
-- C++ component code is on [Source/src](Source/src/) folder. Main code is on [gdexample.h ](Source/src/gdexample.h) and [gdexample.cpp ](Source/src/gdexample.cpp)
-- Godot project source is on [Source/demo/](Source/demo) folder.
+- The C++ component code is located in the [Source/src](Source/src/) folder. The main code is on [gdexample.h ](Source/src/gdexample.h) and [gdexample.cpp ](Source/src/gdexample.cpp)
+- Godot project source is in the [Source/demo/](Source/demo) folder.
 
 ## Project Architecture
 **Full system architecture**
@@ -32,8 +32,7 @@ The project is divided into two main parts:
 ## KNOWN BUG and lack of feature
 
 **#1**
-RGB values being off and increasing offset over the duration of the video, espacially leading to no RGB values being obtainable after a certain point.
-I suspect this issue may be related to my use of frame seeking. When seeking to a specific frame, it's possible that it does not land precisely on the requested frame.
+The RGB values may be off, with the offset increasing over the duration of the video. This may lead to the inability to obtain RGB values after a certain point. This issue is suspected to be related to frame seeking inaccuracies, where seeking to a specific frame may not land precisely on the requested frame.
 
 **#2**
 The task was to visualize row[] and col[] as 1D textures. However, Godot does not yet support 1D textures, and despite attempting various workarounds, I have not been able to resolve this issue. As an alternative, I have implemented a shader that visualizes animation using two colors selected by the user from row[] and col[].
