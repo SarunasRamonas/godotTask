@@ -10,11 +10,9 @@ The project is divided into two main parts:
 - **Builds:** This folder includes the built versions of the Godot project, alongside FFMpeg dynamic libraries and test video.
 - **Doc:** This folder includes material used for readme
 
-Shortcuts:
+**Shortcuts:**
 - C++ component code is on [Source/src](Source/src/) folder. Main code is on [gdexample.h ](Source/src/gdexample.h) and [gdexample.cpp ](Source/src/gdexample.cpp)
-- 
-- Source/dependencies: dependencies for FFMpeg.
-- Source/src: C++ component code. Main code is on gdexample.h and gdexample.cpp 
+- Godot project source is on [Source/demo/](Source/demo) folder.
 
 ## Project Architecture
 **Full system architecture**
