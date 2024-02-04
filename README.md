@@ -7,8 +7,16 @@
 ## Project Structure
 The project is divided into two main parts:
 - **Source:** This folder contains the main Godot project files and a C++ project for integrating FFMpeg and all dependencies.
-- **Builds:** This folder includes the built versions of the Godot project, alongside FFMpeg dynamic libraries.
+- **Builds:** This folder includes the built versions of the Godot project, alongside FFMpeg dynamic libraries and test video.
 - **Doc:** This folder includes material used for readme
+
+Schortcuts:
+[I'm a relative reference to a repository file](../Source/demo/)
+Godot project folder link.
+
+- Source/demo: godot project folder.
+- Source/dependencies: dependencies for FFMpeg.
+- Source/src: C++ component code. Main code is on gdexample.h and gdexample.cpp 
 
 ## Project Architecture
 **Full system architecture**
